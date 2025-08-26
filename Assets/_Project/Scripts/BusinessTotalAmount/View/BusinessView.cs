@@ -9,7 +9,7 @@ namespace _Project.Scripts.BusinessTotalAmount.View
 
         public override void ShowTotalAmountText(float amount)
         {
-            _totalAmountText.text = amount.ToString();
+            _totalAmountText.text = $"{amount:0.00} $";
         }
     }
 }
