@@ -4,16 +4,16 @@ namespace _Project.Scripts.Infrastructure.Facades
 {
     public class DefaultUIFacade : BaseUIFacade
     {
-        private BaseBusinessView _businessWindowView;
+        private BaseBusinessWindowView _businessWindowWindowView;
 
-        public DefaultUIFacade(BaseBusinessView businessWindowView) : base(businessWindowView)
+        public DefaultUIFacade(BaseBusinessWindowView businessWindowWindowView) : base(businessWindowWindowView)
         {
-            _businessWindowView = businessWindowView;
+            _businessWindowWindowView = businessWindowWindowView;
         }
 
         public override void ShowTotalMoneyAmount(float amount)
         {
-            _businessWindowView.ShowTotalAmountText(amount);
+            _businessWindowWindowView.ShowTotalAmountText(amount);
         }
     }
 }

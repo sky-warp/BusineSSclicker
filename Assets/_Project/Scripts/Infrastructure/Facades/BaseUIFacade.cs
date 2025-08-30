@@ -4,7 +4,7 @@ namespace _Project.Scripts.Infrastructure.Facades
 {
     public abstract class BaseUIFacade
     {
-        protected BaseUIFacade(BaseBusinessView businessWindowView)
+        protected BaseUIFacade(BaseBusinessWindowView businessWindowWindowView)
         {
         }
 

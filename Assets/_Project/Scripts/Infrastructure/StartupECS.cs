@@ -8,7 +8,7 @@ namespace _Project.Scripts.Infrastructure
 {
     public class StartupECS : MonoBehaviour
     {
-        [SerializeField] private BaseBusinessView _businessView;
+        [SerializeField] private BaseBusinessWindowView businessWindowView;
         
         private World _world;
 
@@ -17,7 +17,7 @@ namespace _Project.Scripts.Infrastructure
             _world = World.Default;
 
             var totalMoneyAmountSystemGroup = _world.CreateSystemsGroup();
-            totalMoneyAmountSystemGroup.AddSystem(new TotalMoneySystem(new DefaultUIFacade(_businessView)));
+            totalMoneyAmountSystemGroup.AddSystem(new TotalMoneySystem(new DefaultUIFacade(businessWindowView)));
 
             _world.AddSystemsGroup(0, totalMoneyAmountSystemGroup);
         }
