@@ -199,7 +199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4509f4c9df4afaa8d495e0bf21947f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _businessView: {fileID: 735687131}
+  businessWindowView: {fileID: 735687131}
+  _config: {fileID: 11400000, guid: 2dd51390768f03e4884e0b1bf052a66e, type: 2}
+  _viewPrefab: {fileID: -5909576486354650493, guid: 9f3058a9608b2e943a14fd91fa0e4e09, type: 3}
+  _bussinessesParent: {fileID: 1937970527}
 --- !u!1 &204740557
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +778,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 204740558}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2823714
+  m_Size: 0.2823065
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895d963b122c40b78a8f23e50e3a87aa, type: 3}
+  m_Name: GlobalBusinessConfig
+  m_EditorClassIdentifier: 
+  <Configs>k__BackingField:
+  - Name: GREAT BUSINESS
+    StartupLevel: 1
+    BaseIncome: 3
+    BaseDelay: 5
+    LevelUpText: LVL UP
+    Upgrade1Price: 100
+    Upgrade1Boost: 0.1
+    Upgrade1Text: Decrease salary
+    Upgrade2Price: 500
+    Upgrade2Boost: 0.2
+    Upgrade2Text: Cheaper products
+  - Name: SOME BUSINESS
+    StartupLevel: 0
+    BaseIncome: 0
+    BaseDelay: 0
+    LevelUpText: 
+    Upgrade1Price: 0
+    Upgrade1Boost: 0
+    Upgrade1Text: 
+    Upgrade2Price: 0
+    Upgrade2Boost: 0
+    Upgrade2Text: 

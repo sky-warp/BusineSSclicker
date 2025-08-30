@@ -1257,7 +1257,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1392,6 +1392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4376544198298252719}
+  - component: {fileID: -5909576486354650493}
   m_Layer: 5
   m_Name: BusinessWindowContainer
   m_TagString: Untagged
@@ -1426,6 +1427,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &-5909576486354650493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633699462748346287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd9dfca8d5643b986f61f3c51e69b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BusinessName: {fileID: 141765064333834249}
+  CurrentLevel: {fileID: 3162815114717919589}
+  CurrentIncome: {fileID: 8093603805796461751}
+  LevelUpButton: {fileID: 4959279470174927335}
+  FirstUpgrade: {fileID: 3876273596090177140}
+  SecondUpgrade: {fileID: 3754277534617231113}
 --- !u!1 &9060564832377638062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1457,7 @@ GameObject:
   - component: {fileID: 5009998165958214571}
   - component: {fileID: 8093603805796461751}
   m_Layer: 5
-  m_Name: ValueText
+  m_Name: IncomeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,7 +1510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LVL
+  m_text: 'INCOME
 
     XXX'
   m_isRightToLeft: 0
