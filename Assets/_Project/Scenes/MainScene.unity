@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 92264459}
   - component: {fileID: 92264460}
   m_Layer: 0
-  m_Name: Startup
+  m_Name: EntryPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,10 +196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 92264457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d4509f4c9df4afaa8d495e0bf21947f, type: 3}
+  m_Script: {fileID: 11500000, guid: cb91813cb43d4e7a92d503550a0593f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  businessWindowView: {fileID: 735687131}
+  _businessWindowView: {fileID: 735687131}
   _config: {fileID: 11400000, guid: 2dd51390768f03e4884e0b1bf052a66e, type: 2}
   _viewPrefab: {fileID: -5909576486354650493, guid: 9f3058a9608b2e943a14fd91fa0e4e09, type: 3}
   _bussinessesParent: {fileID: 1937970527}

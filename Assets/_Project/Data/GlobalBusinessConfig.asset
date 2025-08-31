@@ -24,14 +24,3 @@ MonoBehaviour:
     Upgrade2Price: 500
     Upgrade2Boost: 0.2
     Upgrade2Text: Cheaper products
-  - Name: SOME BUSINESS
-    StartupLevel: 0
-    BaseIncome: 0
-    BaseDelay: 0
-    LevelUpText: 
-    Upgrade1Price: 0
-    Upgrade1Boost: 0
-    Upgrade1Text: 
-    Upgrade2Price: 0
-    Upgrade2Boost: 0
-    Upgrade2Text: 

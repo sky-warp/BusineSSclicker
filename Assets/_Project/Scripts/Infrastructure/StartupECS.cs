@@ -9,27 +9,35 @@ using UnityEngine;
 
 namespace _Project.Scripts.Infrastructure
 {
-    public class StartupEcs : MonoBehaviour
+    public class StartupEcs
     {
-        [SerializeField] private BaseBusinessWindowView businessWindowView;
-        [SerializeField] private GlobalBusinessesConfig _config;
+        private BaseBusinessWindowView _businessWindowView;
+        private GlobalBusinessesConfig _config;
 
-        [SerializeField] private BaseBusinessContainerView _viewPrefab;
-        [SerializeField] private Transform _bussinessesParent;
+        private BaseBusinessContainerView _viewPrefab;
+        private Transform _businessesParent;
 
         private World _world;
 
-        public void Start()
+        public void Init(BaseBusinessWindowView businessWindowView, GlobalBusinessesConfig config,
+            BaseBusinessContainerView viewPrefab, Transform businessesParent)
+        {
+            _businessWindowView = businessWindowView;
+            _config = config;
+            _viewPrefab = viewPrefab;
+            _businessesParent = businessesParent;
+        }
+
+        public void Startup()
         {
             _world = World.Default;
 
             var moneyCounterGroup = _world.CreateSystemsGroup();
-            moneyCounterGroup.AddSystem(new TotalMoneyCounter(new DefaultUIFacade(businessWindowView)));
+            moneyCounterGroup.AddSystem(new TotalMoneyCounter(new DefaultUIFacade(_businessWindowView)));
             moneyCounterGroup.AddSystem(new IncomeCounter());
             moneyCounterGroup.AddInitializer(new BusinessesInitialize(_config,
-                new BusinessContainerFactory(_viewPrefab, _bussinessesParent)));
-
-
+                new BusinessContainerFactory(_viewPrefab, _businessesParent)));
+            
             _world.AddSystemsGroup(0, moneyCounterGroup);
         }
     }
