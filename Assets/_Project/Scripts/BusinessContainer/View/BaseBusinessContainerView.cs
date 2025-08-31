@@ -25,11 +25,11 @@ namespace _Project.Scripts.BusinessContainer.View
             SetSecondUpgradeText(secondUpgradeText);
         }
 
-        public abstract void SetBusinessName(string businessName);
-        public abstract void SetCurrentLevel(int level);
-        public abstract void SetCurrentIncome(float income);
-        public abstract void SetLvlUpButtonText(string text);
-        public abstract void SetFirstUpgradeText(string text);
-        public abstract void SetSecondUpgradeText(string text);
+        protected abstract void SetBusinessName(string businessName);
+        protected abstract void SetCurrentLevel(int level);
+        protected abstract void SetCurrentIncome(float income);
+        protected abstract void SetLvlUpButtonText(string text);
+        protected abstract void SetFirstUpgradeText(string text);
+        protected abstract void SetSecondUpgradeText(string text);
     }
 }

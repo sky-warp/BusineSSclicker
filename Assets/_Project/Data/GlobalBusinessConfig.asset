@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GlobalBusinessConfig
   m_EditorClassIdentifier: 
   <Configs>k__BackingField:
-  - Name: GREAT BUSINESS
-    StartupLevel: 1
-    BaseIncome: 3
+  - Name: SOME BUSINESS
+    StartupLevel: 100
+    BaseIncome: 300
     BaseDelay: 5
     LevelUpText: LVL UP
     Upgrade1Price: 100

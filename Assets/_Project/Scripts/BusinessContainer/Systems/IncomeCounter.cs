@@ -1,6 +1,6 @@
 using Scellecs.Morpeh;
 
-namespace _Project.Scripts.BusinessContainer
+namespace _Project.Scripts.BusinessContainer.Systems
 {
     public class IncomeCounter : ISystem
     {

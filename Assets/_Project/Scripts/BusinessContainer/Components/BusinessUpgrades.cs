@@ -1,6 +1,6 @@
 using Scellecs.Morpeh;
 
-namespace _Project.Scripts.BusinessContainer
+namespace _Project.Scripts.BusinessContainer.Components
 {
     public struct BusinessUpgrades : IComponent
     {
