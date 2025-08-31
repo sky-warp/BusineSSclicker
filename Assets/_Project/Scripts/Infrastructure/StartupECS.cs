@@ -1,6 +1,8 @@
 using _Project.Scripts.BusinessContainer;
+using _Project.Scripts.BusinessContainer.Systems;
 using _Project.Scripts.BusinessContainer.View;
 using _Project.Scripts.BusinessTotalAmount;
+using _Project.Scripts.BusinessTotalAmount.Systems;
 using _Project.Scripts.BusinessTotalAmount.View;
 using _Project.Scripts.Configs;
 using _Project.Scripts.Infrastructure.Facades;
@@ -32,13 +34,20 @@ namespace _Project.Scripts.Infrastructure
         {
             _world = World.Default;
 
+            var initializersGroup = _world.CreateSystemsGroup();
+            initializersGroup.AddInitializer(new BusinessesInitialize(_config));
+
+            var drawGroup = _world.CreateSystemsGroup();
+            drawGroup.AddSystem(new DrawTotalMoneyAmount(new DefaultUIFacade(_businessWindowView)));
+            drawGroup.AddSystem(new DrawBusinessesView(new BusinessContainerFactory(_viewPrefab, _businessesParent)));
+
             var moneyCounterGroup = _world.CreateSystemsGroup();
-            moneyCounterGroup.AddSystem(new TotalMoneyCounter(new DefaultUIFacade(_businessWindowView)));
             moneyCounterGroup.AddSystem(new IncomeCounter());
-            moneyCounterGroup.AddInitializer(new BusinessesInitialize(_config,
-                new BusinessContainerFactory(_viewPrefab, _businessesParent)));
-            
-            _world.AddSystemsGroup(0, moneyCounterGroup);
+            moneyCounterGroup.AddSystem(new TotalMoneyCounter());
+
+            _world.AddSystemsGroup(0, initializersGroup);
+            _world.AddSystemsGroup(1, moneyCounterGroup);
+            _world.AddSystemsGroup(2, drawGroup);
         }
     }
 }
