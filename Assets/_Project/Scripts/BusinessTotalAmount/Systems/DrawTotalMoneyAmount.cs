@@ -2,7 +2,7 @@ using _Project.Scripts.BusinessTotalAmount.Components;
 using _Project.Scripts.Infrastructure.Facades;
 using Scellecs.Morpeh;
 
-namespace _Project.Scripts.BusinessTotalAmount.View
+namespace _Project.Scripts.BusinessTotalAmount.Systems
 {
     public class DrawTotalMoneyAmount : ISystem
     {
