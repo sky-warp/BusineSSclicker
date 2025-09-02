@@ -1,5 +1,5 @@
 using _Project.Scripts.BusinessContainer.Components;
-using _Project.Scripts.BusinessContainer.View;
+using _Project.Scripts.Infrastructure.Facades;
 using Scellecs.Morpeh;
 
 namespace _Project.Scripts.BusinessContainer.Systems
@@ -8,17 +8,17 @@ namespace _Project.Scripts.BusinessContainer.Systems
     {
         public World World { get; set; }
 
-        private BaseBusinessContainerFactory _factory;
-
         private Filter _businessesEntities;
 
         private Stash<BusinessData> _businessData;
         private Stash<BusinessUpgrades> _businessUpgradesData;
         private Stash<BusinessText> _businessTextData;
 
-        public DrawBusinessesView(BaseBusinessContainerFactory factory)
+        private BaseUIFacade _uiFacade;
+        
+        public DrawBusinessesView(BaseUIFacade facade)
         {
-            _factory = factory;
+            _uiFacade = facade;
         }
 
         public void OnAwake()
@@ -45,9 +45,9 @@ namespace _Project.Scripts.BusinessContainer.Systems
                 ref var businessTextData = ref _businessTextData.Get(businesses);
                 ref var businessUpgradesData = ref _businessUpgradesData.Get(businesses);
 
-                var bussinesView = _factory.Create();
+                var businessView = _uiFacade.CreateBusinessContainer();
 
-                bussinesView.TemplateMethod(businessTextData.Name, businessData.CurrentLevel, businessData.Income,
+                businessView.TemplateMethod(businessTextData.Name, businessData.CurrentLevel, businessData.Income,
                     businessTextData.LevelUpText,
                     businessTextData.Upgrade1Text, businessTextData.Upgrade2Text);
             }

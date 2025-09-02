@@ -1,19 +1,23 @@
+using _Project.Scripts.BusinessContainer.View;
 using _Project.Scripts.BusinessTotalAmount.View;
 
 namespace _Project.Scripts.Infrastructure.Facades
 {
     public class DefaultUIFacade : BaseUIFacade
     {
-        private BaseBusinessWindowView _businessWindowWindowView;
-
-        public DefaultUIFacade(BaseBusinessWindowView businessWindowWindowView) : base(businessWindowWindowView)
+        public DefaultUIFacade(BaseBusinessWindowView businessWindowView, BaseBusinessContainerFactory factory) :
+            base(businessWindowView, factory)
         {
-            _businessWindowWindowView = businessWindowWindowView;
         }
 
         public override void ShowTotalMoneyAmount(float amount)
         {
-            _businessWindowWindowView.ShowTotalAmountText(amount);
+            BusinessWindowView.ShowTotalAmountText(amount);
+        }
+
+        public override BaseBusinessContainerView CreateBusinessContainer()
+        {
+            return Factory.Create();
         }
     }
 }
