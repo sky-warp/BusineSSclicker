@@ -12,6 +12,7 @@ namespace _Project.Scripts.BusinessContainer.Systems
         private Stash<BusinessUpgrades> _businessUpgrades;
         private Stash<BusinessText> _businessText;
         private Stash<BusinessUpgradesChecker> _businessUpgradesChecker;
+        private Stash<BusinessUi> _businessUi;
 
         private GlobalBusinessesConfig _config;
 
@@ -25,6 +26,7 @@ namespace _Project.Scripts.BusinessContainer.Systems
             _businessData = this.World.GetStash<BusinessData>();
             _businessUpgrades = this.World.GetStash<BusinessUpgrades>();
             _businessText = this.World.GetStash<BusinessText>();
+            _businessUi = this.World.GetStash<BusinessUi>();
 
             InitializeBusinesses();
         }
@@ -54,6 +56,8 @@ namespace _Project.Scripts.BusinessContainer.Systems
 
                 _businessUpgradesChecker = this.World.GetStash<BusinessUpgradesChecker>();
                 _businessUpgradesChecker.Add(business);
+                
+                _businessUi.Add(business);
             }
         }
 

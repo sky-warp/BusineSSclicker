@@ -1,5 +1,7 @@
+using _Project.Scripts.BusinessContainer.Components;
 using _Project.Scripts.BusinessTotalAmount.Components;
 using Scellecs.Morpeh;
+using UnityEngine;
 
 namespace _Project.Scripts.BusinessTotalAmount.Systems
 {
@@ -7,28 +9,50 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
     {
         public World World { get; set; }
 
-        private Filter _totalBalanceEntities;
+        private Filter _allBusinesses;
         private Stash<TotalBalance> _totalAmountStash;
+        private Stash<BusinessData> _businessDataStash;
+
+        private TotalBalance _totalBalance;
 
         public void OnAwake()
         {
             var totalAmount = this.World.CreateEntity();
 
             _totalAmountStash = this.World.GetStash<TotalBalance>();
-            _totalAmountStash.Add(totalAmount);
+            ref var totalBalance = ref _totalAmountStash.Add(totalAmount);
+            _totalBalance = totalBalance;
 
-            _totalBalanceEntities = this.World.Filter.With<TotalBalance>().Build();
+            _businessDataStash = this.World.GetStash<BusinessData>();
+
+            _allBusinesses = this.World.Filter.With<BusinessData>().Build();
         }
 
         public void OnUpdate(float deltaTime)
         {
-            //Calculate total amount
+            foreach (var business in _allBusinesses)
+            {
+                ref var data = ref _businessDataStash.Get(business);
+
+                if (data.CurrentLevel == 0)
+                    continue;
+
+                data.Timer += deltaTime;
+                data.IncomeProgress = data.Timer / data.Delay;
+                
+                if (data.IncomeProgress >= 1)
+                {
+                    data.Timer = 0;
+                    data.IncomeProgress = 0;
+                    _totalBalance.TotalMoneyAmount += data.Income;
+                    Debug.Log(_totalBalance.TotalMoneyAmount);
+                }
+            }
         }
 
         public void Dispose()
         {
             _totalAmountStash.Dispose();
-            _totalBalanceEntities.Dispose();
         }
     }
 }

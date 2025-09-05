@@ -8,6 +8,6 @@ namespace _Project.Scripts.BusinessContainer.Components
         public float Income;
         public float Delay;
         public float Timer;
-        public float IncomeProgressBarValue;
+        public float IncomeProgress;
     }
 }

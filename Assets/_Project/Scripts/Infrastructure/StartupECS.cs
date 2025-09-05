@@ -38,13 +38,12 @@ namespace _Project.Scripts.Infrastructure
             var initializersGroup = _world.CreateSystemsGroup();
             initializersGroup.AddInitializer(new BusinessesInitialize(_config));
 
+            var moneyCounterGroup = _world.CreateSystemsGroup();
+            moneyCounterGroup.AddSystem(new TotalMoneyCounter());
+            
             var drawGroup = _world.CreateSystemsGroup();
             drawGroup.AddSystem(new DrawTotalMoneyAmount(uiFacade));
             drawGroup.AddSystem(new DrawBusinessesView(uiFacade));
-
-            var moneyCounterGroup = _world.CreateSystemsGroup();
-            moneyCounterGroup.AddSystem(new IncomeCounter());
-            moneyCounterGroup.AddSystem(new TotalMoneyCounter());
 
             _world.AddSystemsGroup(0, initializersGroup);
             _world.AddSystemsGroup(1, moneyCounterGroup);

@@ -6,6 +6,7 @@ namespace _Project.Scripts.BusinessContainer.View
 {
     public abstract class BaseBusinessContainerView : MonoBehaviour
     {
+        [field: SerializeField] public Image ProgressBar { get; private set; }
         [SerializeField] protected TextMeshProUGUI BusinessName;
         [SerializeField] protected TextMeshProUGUI CurrentLevel;
         [SerializeField] protected TextMeshProUGUI CurrentIncome;

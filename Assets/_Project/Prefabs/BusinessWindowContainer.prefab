@@ -1439,6 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd9dfca8d5643b986f61f3c51e69b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ProgressBar>k__BackingField: {fileID: 1617551240924510220}
   BusinessName: {fileID: 141765064333834249}
   CurrentLevel: {fileID: 3162815114717919589}
   CurrentIncome: {fileID: 8093603805796461751}
