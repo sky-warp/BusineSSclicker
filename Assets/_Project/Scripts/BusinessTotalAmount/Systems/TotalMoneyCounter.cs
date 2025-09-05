@@ -1,7 +1,6 @@
 using _Project.Scripts.BusinessContainer.Components;
 using _Project.Scripts.BusinessTotalAmount.Components;
 using Scellecs.Morpeh;
-using UnityEngine;
 
 namespace _Project.Scripts.BusinessTotalAmount.Systems
 {
@@ -39,15 +38,24 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
 
                 data.Timer += deltaTime;
                 data.IncomeProgress = data.Timer / data.Delay;
-                
+
                 if (data.IncomeProgress >= 1)
                 {
                     data.Timer = 0;
                     data.IncomeProgress = 0;
-                    _totalBalance.TotalMoneyAmount += data.Income;
-                    Debug.Log(_totalBalance.TotalMoneyAmount);
+                    IncreaseTotalBalance(data.Income);
                 }
             }
+        }
+
+        private void IncreaseTotalBalance(float value)
+        {
+            _totalBalance.TotalMoneyAmount += value;
+        }
+
+        private void DecreaseTotalBalance(float value)
+        {
+            _totalBalance.TotalMoneyAmount -= value;
         }
 
         public void Dispose()

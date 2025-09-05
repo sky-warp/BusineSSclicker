@@ -13,25 +13,14 @@ MonoBehaviour:
   m_Name: GlobalBusinessConfig
   m_EditorClassIdentifier: 
   <Configs>k__BackingField:
-  - Name: Ur first business
+  - Name: Bacery
     StartupLevel: 1
     BaseIncome: 3
     BaseDelay: 3
     LevelUpText: LVL UP
-    Upgrade1Price: 100
-    Upgrade1Boost: 0.1
+    Upgrade1Price: 50
+    Upgrade1Boost: 0.5
     Upgrade1Text: Decrease salary
-    Upgrade2Price: 500
-    Upgrade2Boost: 0.2
-    Upgrade2Text: Cheaper products
-  - Name: Ur first business
-    StartupLevel: 1
-    BaseIncome: 3
-    BaseDelay: 6
-    LevelUpText: LVL UP
-    Upgrade1Price: 100
-    Upgrade1Boost: 0.1
-    Upgrade1Text: Decrease salary
-    Upgrade2Price: 500
-    Upgrade2Boost: 0.2
+    Upgrade2Price: 400
+    Upgrade2Boost: 1
     Upgrade2Text: Cheaper products

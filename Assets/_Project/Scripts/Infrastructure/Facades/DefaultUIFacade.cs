@@ -12,7 +12,7 @@ namespace _Project.Scripts.Infrastructure.Facades
 
         public override void ShowTotalMoneyAmount(float amount)
         {
-            BusinessWindowView.ShowTotalAmountText(amount);
+            BusinessWindowView.SetTotalAmountText(amount);
         }
 
         public override BaseBusinessContainerView CreateBusinessContainer()

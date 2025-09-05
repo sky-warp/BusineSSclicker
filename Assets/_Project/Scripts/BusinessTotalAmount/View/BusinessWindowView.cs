@@ -7,7 +7,7 @@ namespace _Project.Scripts.BusinessTotalAmount.View
     {
         [SerializeField] private TextMeshProUGUI _totalAmountText;
 
-        public override void ShowTotalAmountText(float amount)
+        public override void SetTotalAmountText(float amount)
         {
             _totalAmountText.text = $"{amount:0.00} $";
         }

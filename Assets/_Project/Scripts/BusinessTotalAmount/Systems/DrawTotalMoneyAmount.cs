@@ -31,7 +31,6 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
         {
             if (_totalBalanceEntities.GetLengthSlow() != 0)
             {
-                //Redraw total balance (maybe some ECS event system)
                 ref var totalBalanceEntity = ref _totalAmountStash.Get(_totalBalanceEntities.First());
             }
         }
