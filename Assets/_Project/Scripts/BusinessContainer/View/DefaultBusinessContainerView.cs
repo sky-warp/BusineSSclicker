@@ -11,17 +11,17 @@ namespace _Project.Scripts.BusinessContainer.View
 
         protected override void SetCurrentLevel(int level)
         {
-            CurrentLevel.text = level.ToString();
+            CurrentLevel.text = $"LVL: {level}";
         }
 
         protected override void SetCurrentIncome(float income)
         {
-            CurrentIncome.text = income.ToString();
+            CurrentIncome.text = $"Income: {income:0.00}";
         }
 
-        protected override void SetLvlUpButtonText(string text)
+        protected override void SetLvlUpButtonText(string text, float price)
         {
-            LevelUpButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
+            LevelUpButton.GetComponentInChildren<TextMeshProUGUI>().text = $"{text}: {price:0.00}";
         }
 
         protected override void SetFirstUpgradeText(string text)

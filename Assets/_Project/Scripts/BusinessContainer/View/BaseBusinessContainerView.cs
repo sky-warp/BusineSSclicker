@@ -14,14 +14,14 @@ namespace _Project.Scripts.BusinessContainer.View
         [SerializeField] protected Button FirstUpgrade;
         [SerializeField] protected Button SecondUpgrade;
 
-        public void TemplateMethod(string businessName, int level, float income, string lvlupButtonText,
+        public void TemplateMethod(string businessName, int level, float levelUpPrice, float income, string lvlupButtonText,
             string firstUpgradeText,
             string secondUpgradeText)
         {
             SetBusinessName(businessName);
             SetCurrentLevel(level);
             SetCurrentIncome(income);
-            SetLvlUpButtonText(lvlupButtonText);
+            SetLvlUpButtonText(lvlupButtonText, levelUpPrice);
             SetFirstUpgradeText(firstUpgradeText);
             SetSecondUpgradeText(secondUpgradeText);
         }
@@ -29,7 +29,7 @@ namespace _Project.Scripts.BusinessContainer.View
         protected abstract void SetBusinessName(string businessName);
         protected abstract void SetCurrentLevel(int level);
         protected abstract void SetCurrentIncome(float income);
-        protected abstract void SetLvlUpButtonText(string text);
+        protected abstract void SetLvlUpButtonText(string text, float price);
         protected abstract void SetFirstUpgradeText(string text);
         protected abstract void SetSecondUpgradeText(string text);
     }

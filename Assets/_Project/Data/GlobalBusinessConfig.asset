@@ -17,6 +17,19 @@ MonoBehaviour:
     StartupLevel: 1
     BaseIncome: 3
     BaseDelay: 3
+    LevelUpPrice: 50
+    LevelUpText: LVL UP
+    Upgrade1Price: 50
+    Upgrade1Boost: 0.5
+    Upgrade1Text: Decrease salary
+    Upgrade2Price: 400
+    Upgrade2Boost: 1
+    Upgrade2Text: Cheaper products
+  - Name: Other business
+    StartupLevel: 1
+    BaseIncome: 40
+    BaseDelay: 6
+    LevelUpPrice: 50
     LevelUpText: LVL UP
     Upgrade1Price: 50
     Upgrade1Boost: 0.5

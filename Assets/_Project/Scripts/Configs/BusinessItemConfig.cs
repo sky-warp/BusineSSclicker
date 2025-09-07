@@ -9,6 +9,7 @@ namespace _Project.Scripts.Configs
         public int StartupLevel;
         public float BaseIncome;
         public float BaseDelay;
+        public float LevelUpPrice;
         public string LevelUpText;
         public float Upgrade1Price;
         public float Upgrade1Boost;

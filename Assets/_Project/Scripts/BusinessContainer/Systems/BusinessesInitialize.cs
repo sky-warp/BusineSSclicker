@@ -39,6 +39,7 @@ namespace _Project.Scripts.BusinessContainer.Systems
 
                 ref var data = ref _businessData.Add(business);
                 data.CurrentLevel = container.StartupLevel;
+                data.LevelUpPrice = container.LevelUpPrice;
                 data.Income = container.BaseIncome;
                 data.Delay = container.BaseDelay;
 

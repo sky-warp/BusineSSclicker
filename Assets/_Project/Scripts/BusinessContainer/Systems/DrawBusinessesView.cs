@@ -46,7 +46,7 @@ namespace _Project.Scripts.BusinessContainer.Systems
             }
         }
 
-        private void CalculateProgressBar(Image progressBar,  float currentIncome)
+        private void CalculateProgressBar(Image progressBar, float currentIncome)
         {
             if (currentIncome > 0)
                 progressBar.fillAmount = currentIncome;
@@ -65,7 +65,8 @@ namespace _Project.Scripts.BusinessContainer.Systems
 
                 businessUi.ProgressBar = businessView.ProgressBar;
 
-                businessView.TemplateMethod(businessTextData.Name, businessData.CurrentLevel, businessData.Income,
+                businessView.TemplateMethod(businessTextData.Name, businessData.CurrentLevel, businessData.LevelUpPrice,
+                    businessData.Income,
                     businessTextData.LevelUpText,
                     businessTextData.Upgrade1Text, businessTextData.Upgrade2Text);
             }
