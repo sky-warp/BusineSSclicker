@@ -8,7 +8,8 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
     {
         public World World { get; set; }
 
-        private Filter _totalBalanceEntities;
+        private Filter _totalBalanceFilter;
+        private Filter _balanceChangedFilter;
         private Stash<TotalBalance> _totalAmountStash;
 
         private BaseUIFacade _uiFacade;
@@ -21,30 +22,32 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
         public void OnAwake()
         {
             _totalAmountStash = this.World.GetStash<TotalBalance>();
-
-            _totalBalanceEntities = this.World.Filter.With<TotalBalance>().Build();
+            
+            _totalBalanceFilter = this.World.Filter.With<TotalBalance>().Build();
+            
+            _balanceChangedFilter = this.World.Filter.With<BalanceChangeEvent>().Build();
 
             RedrawTotalBalance();
         }
 
         public void OnUpdate(float deltaTime)
         {
-            if (_totalBalanceEntities.GetLengthSlow() != 0)
+            if (_balanceChangedFilter.GetLengthSlow() != 0)
             {
-                ref var totalBalanceEntity = ref _totalAmountStash.Get(_totalBalanceEntities.First());
+                RedrawTotalBalance();
             }
         }
 
         private void RedrawTotalBalance()
         {
-            ref var totalBalanceEntity = ref _totalAmountStash.Get(_totalBalanceEntities.First());
+            ref var totalBalanceEntity = ref _totalAmountStash.Get(_totalBalanceFilter.First());
 
             _uiFacade.ShowTotalMoneyAmount(totalBalanceEntity.TotalMoneyAmount);
         }
 
         public void Dispose()
         {
-            _totalBalanceEntities.Dispose();
+            _totalBalanceFilter.Dispose();
         }
     }
 }

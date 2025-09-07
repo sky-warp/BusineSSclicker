@@ -9,26 +9,36 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
         public World World { get; set; }
 
         private Filter _allBusinesses;
+        private Filter _changeBalanceEvent;
+
+        private Stash<BalanceChangeEvent> _balanceChangeEventStash;
         private Stash<TotalBalance> _totalAmountStash;
         private Stash<BusinessData> _businessDataStash;
 
-        private TotalBalance _totalBalance;
+        private Entity _totalAmount;
 
         public void OnAwake()
         {
-            var totalAmount = this.World.CreateEntity();
+            _totalAmount = this.World.CreateEntity();
 
             _totalAmountStash = this.World.GetStash<TotalBalance>();
-            ref var totalBalance = ref _totalAmountStash.Add(totalAmount);
-            _totalBalance = totalBalance;
+            ref var totalBalance = ref _totalAmountStash.Add(_totalAmount);
 
             _businessDataStash = this.World.GetStash<BusinessData>();
 
+            _balanceChangeEventStash = this.World.GetStash<BalanceChangeEvent>();
+
             _allBusinesses = this.World.Filter.With<BusinessData>().Build();
+            _changeBalanceEvent = this.World.Filter.With<BalanceChangeEvent>().Build();
         }
 
         public void OnUpdate(float deltaTime)
         {
+            foreach (var balanceEvent in _changeBalanceEvent)
+            {
+                _balanceChangeEventStash.Remove(balanceEvent);
+            }
+
             foreach (var business in _allBusinesses)
             {
                 ref var data = ref _businessDataStash.Get(business);
@@ -44,23 +54,34 @@ namespace _Project.Scripts.BusinessTotalAmount.Systems
                     data.Timer = 0;
                     data.IncomeProgress = 0;
                     IncreaseTotalBalance(data.Income);
+
+                    if (!_balanceChangeEventStash.Has(_totalAmount))
+                    {
+                        _balanceChangeEventStash.Add(_totalAmount);
+                    }
                 }
             }
         }
 
         private void IncreaseTotalBalance(float value)
         {
-            _totalBalance.TotalMoneyAmount += value;
+            ref var totalBalance = ref _totalAmountStash.Get(_totalAmount);
+
+            totalBalance.TotalMoneyAmount += value;
         }
 
         private void DecreaseTotalBalance(float value)
         {
-            _totalBalance.TotalMoneyAmount -= value;
+            ref var totalBalance = ref _totalAmountStash.Get(_totalAmount);
+            
+            totalBalance.TotalMoneyAmount -= value;
         }
 
         public void Dispose()
         {
             _totalAmountStash.Dispose();
+            _balanceChangeEventStash.Dispose();
+            _changeBalanceEvent.Dispose();
         }
     }
 }
